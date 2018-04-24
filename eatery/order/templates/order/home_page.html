@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Da Ji Ba Canguan</title>
+</head>
+<body>
+	<h1>Da Ji Ba Restaurant</h1>
+	<p>Tasty Treats To Your Door</p>
+
+	<h2>Here are all our items!</h2>
+
+	<!-- Item 1 -->
+	<p>Ji Ba: 20RMB</p>
+	<img src="http://www.taopic.com/uploads/allimg/120401/12879-120401214A935.jpg">
+	<br>
+
+	<!-- Item 2 -->
+	<p>song zi tian shi: 10RMB</p>
+	<img src="http://pic3.nipic.com/20090623/247584_173411073_2.jpg">
+
+	<!-- Order Form -->
+	<h2>Place your Order</h2>
+	<form action="{% url 'order:home_page' %}" method="POST">
+		{% csrf_token %}	
+		<input type="text" name="item" placeholder="Please Type Which Item You Want"><br>
+		<textarea name="address" placeholder="Please Type Your Address"></textarea><br>
+		<input type="submit" value="Place Your Order">
+	</form>
+
+	<!-- Show Order -->
+	<h1>Your Order:</h1>
+	<p>Item Ordered: {{item}}</p>
+	<p>Delivery Address: {{address}}</p>
+
+</body>
+</html>
